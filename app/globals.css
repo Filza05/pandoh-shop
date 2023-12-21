@@ -1,5 +1,12 @@
+@import "mdb-react-ui-kit/dist/css/mdb.min.css";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
+body{
+    padding: 0px;
+    margin: 0px;
+}
