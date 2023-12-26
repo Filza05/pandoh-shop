@@ -2,6 +2,8 @@ import React from 'react'
 import { MDBCarouselItem } from 'mdb-react-ui-kit'
 import { Dispatch, SetStateAction } from 'react'
 
+/* */
+
 type CarouselItemProps = {
     imageURL: string;
     index: number;
@@ -13,7 +15,7 @@ type CarouselItemProps = {
 
 const CarouselItem: React.FC<CarouselItemProps> = ({ imageURL, index, title, description, setScrollingEnabled, category }) => {
     return (
-        <MDBCarouselItem className="h-screen" itemId={index + 1}>
+        <MDBCarouselItem className="h-screen" itemId={index + 1} interval = {1000}> 
             <img
                 src={imageURL}
                 className="absolute h-full d-block w-100 object-cover"
@@ -28,13 +30,13 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ imageURL, index, title, des
                         setScrollingEnabled(true)
                     }}
                     className="w-full z-0 bg-black bg-opacity-50
-                    rounded-[3px] px-14 sm:w-2/3 lg:w-1/2" //besto ha ji yaaayyyhhhhhhh xD
+                    rounded-[3px] px-14 sm:w-2/3 lg:w-1/2"
                 >
                     <div className="relative py-8 w-full flex-col flex items-center gap-4">
                         <h3 className="text-white text-4xl font-semibold">
                             {title}
                         </h3>
-                        <p className="text-white text-lg font-sans font-light">
+                        <p className="text-white text-lg font-normal font-mono">
                             {description}
                         </p>
                         <div className="pb-1 bg-white items-center w-2/3 rounded-md opacity-60 mt-4" />

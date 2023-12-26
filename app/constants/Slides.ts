@@ -5,37 +5,42 @@ type SlideType = {
   category: string
 }
 
-//fattooooo wayy too long ji 
 const slides: SlideType[] = [
     {
-        image: "/images/SlideImages/men's wear.jpg",
-        title: "Men's Wear",
-        description: "Step into a world of timeless sophistication and contemporary style with our exclusive collection of men's fashion.",
-        category: "men's-wear"
+        image: "/images/SlideImages/Laptops.jpg",
+        title: "Laptops",
+        description: "Power up your productivity with laptops engineered for speed, efficiency, and seamless multitasking. Elevate your digital experience.",
+        category: "Laptops"
     },
     {
-        image: "/images/SlideImages/men's accessories.jpg",
-        title: "Men's Accessories",
-        description: "Elevate your style and make a statement with our sophisticated collection of men's accessories.",
-        category: "men's-accessories"
+        image: "/images/SlideImages/GPU.jpg",
+        title: "GPUs",
+        description: "Unleash the power of immersive visuals and unparalleled performance with our range of high-performance GPUs. Your gateway to the ultimate gaming and creative experience.",
+        category: "GPUs"
     },
     {
-        image: "/images/SlideImages/women's wear.jpg",
-        title: "Women's Wear",
-        description: "Our women's wear collection is a celebration of diversity, versatility, and the artistry of fashion.",
-        category: "women's-wear"
+        image: "/images/SlideImages/Mouse.jpg",
+        title: "PC Mouse",
+        description: "Unleash your productivity and gaming prowess with our high-performance mice. Precision, comfort, and style at your fingertips.",
+        category: "Mice"
     },
     {
-        image: "/images/SlideImages/women's accessories.jpg",
-        title:"Women's Accessories",
-        description:"Indulge in the allure of refinement and personal expression with our exquisite collection of women's accessories.",
-        category: "women's-accessories"
+        image: "/images/SlideImages/Keyboards.jpg",
+        title:"Keyboards",
+        description:"Elevate your typing experience with our range of sleek and responsive keyboards. A perfect blend of style, comfort, and performance. ",
+        category: "Keyboards"
     },
     {
-        image: "/images/SlideImages/beauty products.jpg",
-        title: "Beauty Products",
-        description: "Indulge your senses and enhance your natural radiance with our curated collection of beauty products.",
-        category: "beauty-products"
+        image: "/images/SlideImages/Headphones.jpg",
+        title: "Headphones",
+        description: "Escape into a world of immersive audio with our premium headphones. Crystal-clear sound, unparalleled comfort – redefine your listening experience. ",
+        category: "Headphones"
+    },
+    {
+        image: "/images/SlideImages/Monitors.jpg",
+        title: "PC Monitors",
+        description: " Elevate your workspace with our high-performance monitors. Crisp resolutions, vibrant colors – bring your content to life.",
+        category: "Monitors"
     },
 ]
 
