@@ -13,11 +13,12 @@ export type SignUpFormData = {
   password: string;
 };
 
-export type AddProductFormData= {
-  productname: string,
-  description: string,
-  price: Number,
-  category: string,
-  images: FileList | null,
-}
+export type AddProductFormData = {
+  productname: string;
+  description: string;
+  price: Number;
+  category: string;
+  images: File[];
+};
 
+export type ObjectWithoutImages = Omit<AddProductFormData, "images">;
