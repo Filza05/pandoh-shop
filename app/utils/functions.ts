@@ -1,11 +1,28 @@
-import { AddProductFormData } from "../types/types";
+import { AddProductFormData, ObjectWithoutImages } from "../types/types";
 
-export const trimCreateProductFormData = (product: AddProductFormData): AddProductFormData => {
-    product = {
-        ...product,
-        productname: product.productname.trim(),
-        description: product.description.trim()
-    }
+export const trimCreateProductFormData = (
+  product: AddProductFormData
+): AddProductFormData => {
+  product = {
+    ...product,
+    productname: product.productname.trim(),
+    description: product.description.trim(),
+  };
 
-    return product
-}
+  return product;
+};
+
+export const createFormData = (data: AddProductFormData) => {
+  const formData = new FormData();
+  for (let i = 0; i < data.images!.length; i++) {
+    formData.append("images", data.images![i]);
+  }
+
+  const tempObject: ObjectWithoutImages = { ...data };
+
+  Object.entries(tempObject).map(([key, value]) => {
+    return formData.append(key.toString(), value as string);
+  });
+
+  return formData;
+};

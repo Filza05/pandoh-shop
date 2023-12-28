@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState } from "react";
-import axios from "../axios/axios";
 import useSignUp from "../hooks/useSignUp";
 
 const SignUpPage = () => {
