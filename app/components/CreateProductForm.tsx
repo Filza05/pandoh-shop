@@ -17,6 +17,7 @@ const CreateProductForm: React.FC<CreateProductFormProps> = ({
   addProductFormData,
   productCategories,
 }) => {
+
   const { handleCreateProductFromSubmit } = useProduct();
 
   return (
@@ -33,9 +34,12 @@ const CreateProductForm: React.FC<CreateProductFormProps> = ({
         </label>
         <input
           onChange={(event) => {
-            setAddProductFormData({
-              ...addProductFormData,
-              productname: event.target.value,
+            setAddProductFormData((prevState) => {
+              console.log(event.target.value)
+              return {
+                ...prevState,
+                productname: event.target.value
+              }
             });
           }}
           required

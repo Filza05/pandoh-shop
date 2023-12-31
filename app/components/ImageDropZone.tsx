@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import React, { useCallback, useState } from "react";
-import { useDropzone, FileRejection } from "react-dropzone";
-import { XMarkIcon } from "@heroicons/react/24/solid";
+import React, { useCallback } from "react";
+import { useDropzone } from "react-dropzone";
+import ImagePreviewItem from "./ImagePreviewItem";
 import { AddProductFormData } from "../types/types";
 
 type ImageDropzoneProps = {
@@ -23,6 +22,7 @@ const ImageDropzone: React.FC<ImageDropzoneProps> = ({
     padding: "20px",
     paddingBottom: "40px",
     textAlign: "center",
+    marginBottom: "20px",
   };
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
@@ -43,17 +43,6 @@ const ImageDropzone: React.FC<ImageDropzoneProps> = ({
     },
   });
 
-  const removeFile = (indexToRemove: number) => {
-    setCreateProductFormData((prevState) => {
-      return {
-        ...prevState,
-        images: prevState.images.filter(
-          (file, index) => index != indexToRemove
-        ),
-      };
-    });
-  };
-
   return (
     <>
       <div {...getRootProps()} style={dropzoneStyles}>
@@ -64,36 +53,17 @@ const ImageDropzone: React.FC<ImageDropzoneProps> = ({
           <p>Drag 'n' drop some files here, or click to select files</p>
         )}
       </div>
-
-      <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-10">
-        {createProductFormData.images.map((file, index) => (
-          <li
-            key={file.name}
-            className="relative h-32 rounded-md shadow-lg"
-          >
-            <Image
-              src={URL.createObjectURL(file)}
-              alt={file.name}
-              width={100}
-              height={100}
-              onLoad={() => {
-                URL.revokeObjectURL(URL.createObjectURL(file));
-              }}
-              className="h-full w-full object-contain rounded-md"
+      {createProductFormData.images.length != 0 && (
+        <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-10 pb-10">
+          {createProductFormData.images.map((file, index) => (
+            <ImagePreviewItem
+              setCreateProductFormData={setCreateProductFormData}
+              file={file}
+              index={index}
             />
-            <button
-              type="button"
-              className="w-7 h-7 border border-secondary-400 bg-secondary-400 rounded-full flex justify-center items-center absolute -top-3 -right-3 hover:bg-red-600 transition-colors"
-              onClick={() => removeFile(index)}
-            >
-              <XMarkIcon className="w-5 h-5 hover:fill-white transition-colors" />
-            </button>
-            <p className="mt-2 text-neutral-500 text-[12px] font-medium">
-              {file.name}
-            </p>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </ul>
+      )}
     </>
   );
 };

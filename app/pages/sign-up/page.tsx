@@ -1,11 +1,13 @@
-"use client"
+"use client";
 
-import React, { useState } from "react";
-import useSignUp from "../hooks/useSignUp";
+import React, { useState, useEffect } from "react";
+import useSignUp from "../../hooks/useSignUp";
+import { useSelector } from "react-redux";
+import { selectUser } from "@/app/redux/slices/user";
 
 const SignUpPage = () => {
-  const {handleSignUpFormSubmit} = useSignUp()
-  const [formData, setFormData] = useState({
+  const { handleSignUpFormSubmit } = useSignUp();
+  const [formData, setFormData] = useState({ //mottu yaar backend se modifiedprod aiga na instock k sath? but what abt the images?  
     username: "",
     email: "",
     password: "",
@@ -22,8 +24,8 @@ const SignUpPage = () => {
         <form
           className="bg-white shadow-lg shadow-slate-400 rounded px-8 pt-6 pb-8 mb-4"
           onSubmit={(event) => {
-            event.preventDefault()
-            handleSignUpFormSubmit(formData)
+            event.preventDefault();
+            handleSignUpFormSubmit(formData);
           }}
         >
           <h2 className="text-2xl font-semibold text-center text-blue-500 ">
@@ -103,16 +105,16 @@ const SignUpPage = () => {
           </div>
         </form>
         <p className="text-center text-gray-500 text-xs">
-        &copy;2023 Pandoh Corp. All rights reserved.
+          &copy;2023 Pandoh Corp. All rights reserved.
         </p>
       </div>
       <div className="md:hidden blur-sm absolute inset-0 z-0">
-      <img
-        className="object-cover w-full h-full rounded-md"
-        src="/images/sign-up.jpg"
-        alt=""
-      />
-    </div>
+        <img
+          className="object-cover w-full h-full rounded-md"
+          src="/images/sign-up.jpg"
+          alt=""
+        />
+      </div>
     </div>
   );
 };

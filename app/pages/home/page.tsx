@@ -1,13 +1,13 @@
-"use client"
+"use client";
 /*
 PANDOH CHAT SECTION
 */
-import HomePageCarousel from "../components/HomePageCarousel"
+import HomePageCarousel from "@/app/components/HomePageCarousel";
 
 export default function HomePage() {
-    return (
+  return (
     <section className="h-screen w-screen">
       <HomePageCarousel />
     </section>
-    )
+  );
 }

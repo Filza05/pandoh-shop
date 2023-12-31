@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
-import { SignInFormData } from "../types/types";
-import useSignIn from "../hooks/useSignIn";
+import useSignIn from "../../hooks/useSignIn";
+import Link from "next/link";
 
 export default function page() {
   const [formData, setFormData] = useState({
@@ -23,14 +23,14 @@ export default function page() {
         <div className="w-full max-w-xs relative z-10">
           <form
             className="bg-white shadow-lg shadow-slate-400 rounded px-8 pt-6 pb-8 mb-4"
-            onSubmit = {(event) => {
-              event.preventDefault()
-              handleSignInFormSubmit(formData)
+            onSubmit={(event) => {
+              event.preventDefault();
+              handleSignInFormSubmit(formData);
             }}
           >
             <h2 className="text-2xl font-semibold text-center mb-8 text-blue-500 ">
-            Sign In
-          </h2>
+              Sign In
+            </h2>
             <div className="mb-4">
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
@@ -44,7 +44,9 @@ export default function page() {
                 id="username"
                 type="text"
                 placeholder="Email"
-                onChange={(e) => {formData.email = e?.target.value}}
+                onChange={(e) => {
+                  formData.email = e?.target.value;
+                }}
               />
             </div>
             <div className="mb-6">
@@ -60,7 +62,9 @@ export default function page() {
                 id="password"
                 type="password"
                 placeholder="******************"
-                onChange={(e) => {formData.password = e?.target.value}}
+                onChange={(e) => {
+                  formData.password = e?.target.value;
+                }}
               />
               <p className="text-red-700 text-xs italic hidden">
                 Please choose a password.
@@ -70,12 +74,12 @@ export default function page() {
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Sign In
               </button>
-              <a
+              <Link
                 className="inline-block font-bold text-lg text-blue-500 hover:text-blue-700"
-                href="/sign-up"
+                href="/pages/sign-up"
               >
                 Sign up
-              </a>
+              </Link>
             </div>
             <div className="flex flex-col items-center">
               {/* Add the GoogleLogin component */}
@@ -85,14 +89,14 @@ export default function page() {
             &copy;2023 Pandoh Corp. All rights reserved.
           </p>
         </div>
-         {/* Image container for small screens */}
-    <div className="md:hidden blur-sm absolute inset-0 z-0">
-      <img
-        className="object-cover w-full h-full rounded-md"
-        src="/images/sign-in.jpg"
-        alt=""
-      />
-    </div>
+        {/* Image container for small screens */}
+        <div className="md:hidden blur-sm absolute inset-0 z-0">
+          <img
+            className="object-cover w-full h-full rounded-md"
+            src="/images/sign-in.jpg"
+            alt=""
+          />
+        </div>
       </div>
     </section>
   );

@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import CreateProductForm from "../components/CreateProductForm";
+import CreateProductForm from "../../../components/CreateProductForm";
+import { ProductCategories } from "../../../constants/Enums";
 import { useState } from "react";
-import { AddProductFormData } from "../types/types";
-import { ProductCategories } from "../constants/Enums";
+import { AddProductFormData } from "../../../types/types";
 
-const page = () => {
+function page() {
   const [createProductFormData, setCreateProductFormData] =
     useState<AddProductFormData>({
       productname: "",
@@ -16,10 +16,8 @@ const page = () => {
     });
 
   return (
-    <section className="w-full flex flex-col items-center justify-center py-8">
-      <h1 className="uppercase text-2xl font-semibold text-slate-700">
-        Add Product
-      </h1>
+    <section className="flex flex-col items-center mt-4">
+      <h1 className="text-3xl">Edit Product</h1>
       <CreateProductForm
         addProductFormData={createProductFormData!}
         setAddProductFormData={setCreateProductFormData!}
@@ -27,6 +25,6 @@ const page = () => {
       />
     </section>
   );
-};
+}
 
 export default page;
